@@ -136,7 +136,7 @@ class UsernamePasswordProvider(Provider):
         return response
 
     async def create_user(self, username: str, password: str, **kwargs):
-        return await self.admin_model.create(username=username, password=password, **kwargs)
+        return await self.admin_model.create(username=username, password=password, email= "test@gmail.com",**kwargs)
 
     async def init_view(self, request: Request):
         exists = await self.admin_model.all().limit(1).exists()

@@ -103,6 +103,7 @@ class ForeignKey(Select):
 
     async def get_options(self):
         ret = await self.get_queryset()
+        # print(ret)
         options = [(str(x), x.pk) for x in ret]
         if self.context.get("null"):
             options = [("", "")] + options

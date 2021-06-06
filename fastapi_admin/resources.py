@@ -200,6 +200,10 @@ class Model(Resource):
         return cls._get_fields_attr("name", display)
 
     @classmethod
+    def get_fk_fields(cls):
+        return cls.model._meta.fk_fields
+
+    @classmethod
     def _get_display_input_field(cls, field_name: str) -> Field:
         fields_map = cls.model._meta.fields_map
         field = fields_map.get(field_name)
